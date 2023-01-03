@@ -16,7 +16,7 @@ const Dashboard = () => {
 
   const getData = async () => {
     const res = await axios.get(
-      'https://amazon-clone-nodejs-production.up.railway.app/api/order/all_order'
+      'https://amazon-node.onrender.com/api/order/all_order'
     );
     setData(
       res.data.sort((p1, p2) => {

@@ -16,14 +16,11 @@ const Register = () => {
 
   const checkAuth = () => {
     axios
-      .get(
-        'https://amazon-clone-nodejs-production.up.railway.app/api/auth/isAuth',
-        {
-          headers: {
-            'x-access-token': localStorage.getItem('Amazontoken'),
-          },
-        }
-      )
+      .get('https://amazon-node.onrender.com/api/auth/isAuth', {
+        headers: {
+          'x-access-token': localStorage.getItem('Amazontoken'),
+        },
+      })
       .then((response) => {
         //  console.log()
         if (response.data.login) {
@@ -50,7 +47,7 @@ const Register = () => {
       password,
     };
     const res = await axios.post(
-      'https://amazon-clone-nodejs-production.up.railway.app/api/auth/register',
+      'https://amazon-node.onrender.com/api/auth/register',
       data
     );
     // console.log(res.data)

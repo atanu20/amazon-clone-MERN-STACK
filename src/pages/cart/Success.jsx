@@ -11,14 +11,11 @@ const Success = () => {
   const loc = useLocation();
   const checkAuth = () => {
     axios
-      .get(
-        'https://amazon-clone-nodejs-production.up.railway.app/api/auth/isAuth',
-        {
-          headers: {
-            'x-access-token': localStorage.getItem('Amazontoken'),
-          },
-        }
-      )
+      .get('https://amazon-node.onrender.com/api/auth/isAuth', {
+        headers: {
+          'x-access-token': localStorage.getItem('Amazontoken'),
+        },
+      })
       .then((response) => {
         //  console.log()
         if (!response.data.login) {
@@ -46,7 +43,7 @@ const Success = () => {
       //  console.log(pyid)
       if (Amazonlongid === pyid) {
         const res = await axios.get(
-          `https://amazon-clone-nodejs-production.up.railway.app/api/order/paydetails/${pyid}`
+          `https://amazon-node.onrender.com/api/order/paydetails/${pyid}`
         );
         //    console.log(his)
         // console.log(res)

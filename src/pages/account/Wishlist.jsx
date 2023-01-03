@@ -11,14 +11,11 @@ const Wishlist = () => {
 
   const checkAuth = () => {
     axios
-      .get(
-        'https://amazon-clone-nodejs-production.up.railway.app/api/auth/isAuth',
-        {
-          headers: {
-            'x-access-token': localStorage.getItem('Amazontoken'),
-          },
-        }
-      )
+      .get('https://amazon-node.onrender.com/api/auth/isAuth', {
+        headers: {
+          'x-access-token': localStorage.getItem('Amazontoken'),
+        },
+      })
       .then((response) => {
         //  console.log()
         if (!response.data.login) {
@@ -37,7 +34,7 @@ const Wishlist = () => {
   }, []);
   const getOrderDetails = async () => {
     const res = await axios.get(
-      `https://amazon-clone-nodejs-production.up.railway.app/api/pdt/get_wishlist/${AmazonUserId}`
+      `https://amazon-node.onrender.com/api/pdt/get_wishlist/${AmazonUserId}`
     );
     // console.log(res.data)
     setOrder(

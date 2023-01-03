@@ -21,16 +21,14 @@ const AdminTabel = ({
       deliverystatus: e.target.value,
     };
     // console.log(userid)
-    socket.current = io(
-      'https://amazon-clone-socket-production.up.railway.app/'
-    );
+    socket.current = io('https://amazon-socket.onrender.com/');
     socket.current.emit('sendUpdate', {
       receiverid: userid,
       receiverorderid: oid,
     });
 
     const res = await axios.post(
-      'https://amazon-clone-nodejs-production.up.railway.app/api/order/update_order',
+      'https://amazon-node.onrender.com/api/order/update_order',
       obj
     );
     if (res.data) {

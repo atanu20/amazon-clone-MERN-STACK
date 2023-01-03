@@ -43,7 +43,7 @@ const Product = ({ pid, image, title }) => {
   const addWish = async (id) => {
     // console.log(id)
     const res = await axios.post(
-      'https://amazon-clone-nodejs-production.up.railway.app/api/pdt/add_wishlist',
+      'https://amazon-node.onrender.com/api/pdt/add_wishlist',
       {
         productID: id,
         userID: AmazonUserId,

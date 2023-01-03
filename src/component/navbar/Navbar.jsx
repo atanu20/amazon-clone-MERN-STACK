@@ -22,7 +22,7 @@ const Navbar = () => {
 
   const getcat = async () => {
     const res = await axios.get(
-      'https://amazon-clone-nodejs-production.up.railway.app/api/catg/get_category'
+      'https://amazon-node.onrender.com/api/catg/get_category'
     );
     setCat(res.data);
     // console.log(res.data)
@@ -41,7 +41,7 @@ const Navbar = () => {
   };
   const getData = async () => {
     const res = await axios.get(
-      'https://amazon-clone-nodejs-production.up.railway.app/api/pdt/get_products'
+      'https://amazon-node.onrender.com/api/pdt/get_products'
     );
     // console.log(res.data)
     setProducts(

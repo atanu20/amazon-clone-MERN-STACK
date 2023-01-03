@@ -7,7 +7,7 @@ const Wish = ({ wid, index, productID, date, getOrderDetails }) => {
 
   const getpbyId = async () => {
     const res = await axios.get(
-      `https://amazon-clone-nodejs-production.up.railway.app/api/pdt/get_product/${productID}`
+      `https://amazon-node.onrender.com/api/pdt/get_product/${productID}`
     );
     // console.log(res.data)
     setValue(res.data);
@@ -18,7 +18,7 @@ const Wish = ({ wid, index, productID, date, getOrderDetails }) => {
 
   const DeleteWish = async () => {
     const res = await axios.delete(
-      `https://amazon-clone-nodejs-production.up.railway.app/api/pdt/deletewish/${wid}`
+      `https://amazon-node.onrender.com/api/pdt/deletewish/${wid}`
     );
     if (res.data.status) {
       getOrderDetails();

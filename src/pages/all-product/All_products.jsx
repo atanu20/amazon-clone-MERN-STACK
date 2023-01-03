@@ -9,14 +9,11 @@ const All_products = () => {
   const timeout = useRef(null);
   const checkAuth = () => {
     axios
-      .get(
-        'https://amazon-clone-nodejs-production.up.railway.app/api/auth/isAuth',
-        {
-          headers: {
-            'x-access-token': localStorage.getItem('Amazontoken'),
-          },
-        }
-      )
+      .get('https://amazon-node.onrender.com/api/auth/isAuth', {
+        headers: {
+          'x-access-token': localStorage.getItem('Amazontoken'),
+        },
+      })
       .then((response) => {
         //  console.log()
         if (!response.data.login) {
@@ -36,7 +33,7 @@ const All_products = () => {
 
   const getdata = async () => {
     const res = await axios.get(
-      `https://amazon-clone-nodejs-production.up.railway.app/api/pdt/get_products`
+      `https://amazon-node.onrender.com/api/pdt/get_products`
     );
     setPdata(
       res.data.sort((p1, p2) => {
@@ -51,7 +48,7 @@ const All_products = () => {
 
   const sortData = async (sort) => {
     const res = await axios.get(
-      `https://amazon-clone-nodejs-production.up.railway.app/api/pdt/sort/${sort}`
+      `https://amazon-node.onrender.com/api/pdt/sort/${sort}`
     );
     setPdata(res.data);
   };

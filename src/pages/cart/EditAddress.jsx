@@ -15,14 +15,11 @@ const EditAddress = () => {
 
   const checkAuth = () => {
     axios
-      .get(
-        'https://amazon-clone-nodejs-production.up.railway.app/api/auth/isAuth',
-        {
-          headers: {
-            'x-access-token': localStorage.getItem('Amazontoken'),
-          },
-        }
-      )
+      .get('https://amazon-node.onrender.com/api/auth/isAuth', {
+        headers: {
+          'x-access-token': localStorage.getItem('Amazontoken'),
+        },
+      })
       .then((response) => {
         //  console.log()
         if (!response.data.login) {
@@ -42,7 +39,7 @@ const EditAddress = () => {
 
   const getaddress = async () => {
     const res = await axios.get(
-      `https://amazon-clone-nodejs-production.up.railway.app/api/auth/getaddress/${AmazonUserId}`
+      `https://amazon-node.onrender.com/api/auth/getaddress/${AmazonUserId}`
     );
 
     setPhone(res.data[0].phone);
@@ -63,7 +60,7 @@ const EditAddress = () => {
     };
 
     const res = await axios.post(
-      `https://amazon-clone-nodejs-production.up.railway.app/api/auth/edit_address`,
+      `https://amazon-node.onrender.com/api/auth/edit_address`,
       data
     );
     his.push('/cart-details');

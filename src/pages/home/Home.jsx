@@ -15,14 +15,11 @@ const Home = () => {
 
   const checkAuth = () => {
     axios
-      .get(
-        'https://amazon-clone-nodejs-production.up.railway.app/api/auth/isAuth',
-        {
-          headers: {
-            'x-access-token': localStorage.getItem('Amazontoken'),
-          },
-        }
-      )
+      .get('https://amazon-node.onrender.com/api/auth/isAuth', {
+        headers: {
+          'x-access-token': localStorage.getItem('Amazontoken'),
+        },
+      })
       .then((response) => {
         //  console.log()
         if (!response.data.login) {
@@ -42,7 +39,7 @@ const Home = () => {
 
   const getdata = async () => {
     const res = await axios.get(
-      'https://amazon-clone-nodejs-production.up.railway.app/api/pdt/get_products_limit'
+      'https://amazon-node.onrender.com/api/pdt/get_products_limit'
     );
     setPData(res.data);
   };

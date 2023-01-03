@@ -25,14 +25,11 @@ const CartDetails = () => {
   const timeout = useRef(null);
   const checkAuth = () => {
     axios
-      .get(
-        'https://amazon-clone-nodejs-production.up.railway.app/api/auth/isAuth',
-        {
-          headers: {
-            'x-access-token': localStorage.getItem('Amazontoken'),
-          },
-        }
-      )
+      .get('https://amazon-node.onrender.com/api/auth/isAuth', {
+        headers: {
+          'x-access-token': localStorage.getItem('Amazontoken'),
+        },
+      })
       .then((response) => {
         //  console.log()
         if (!response.data.login) {
@@ -52,16 +49,13 @@ const CartDetails = () => {
 
   const getPro = () => {
     //  console.log(JSON.stringify({ ids: Object.keys(cart.items)}))
-    fetch(
-      'https://amazon-clone-nodejs-production.up.railway.app/api/pdt/get_cart_products',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ ids: Object.keys(cart.items) }),
-      }
-    )
+    fetch('https://amazon-node.onrender.com/api/pdt/get_cart_products', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ids: Object.keys(cart.items) }),
+    })
       .then((res) => res.json())
       .then((products) => {
         setProducts(products);
@@ -95,7 +89,7 @@ const CartDetails = () => {
 
   const getaddress = async () => {
     const res = await axios.get(
-      `https://amazon-clone-nodejs-production.up.railway.app/api/auth/getaddress/${AmazonUserId}`
+      `https://amazon-node.onrender.com/api/auth/getaddress/${AmazonUserId}`
     );
 
     setYourAddress(res.data);
@@ -110,7 +104,7 @@ const CartDetails = () => {
       address: addr,
     };
     const res = await axios.post(
-      'https://amazon-clone-nodejs-production.up.railway.app/api/auth/add_address',
+      'https://amazon-node.onrender.com/api/auth/add_address',
       data
     );
 
@@ -139,7 +133,7 @@ const CartDetails = () => {
     };
 
     const res = await axios.post(
-      `https://amazon-clone-nodejs-production.up.railway.app/api/order/add_order`,
+      `https://amazon-node.onrender.com/api/order/add_order`,
       data
     );
     //  console.log(res.data)
